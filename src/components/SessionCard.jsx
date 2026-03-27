@@ -16,7 +16,7 @@ const SessionCard = ({ data, setToggle }) => {
         className={`max-w-sm w-full backdrop-blur-lg bg-white/20 rounded-2xl p-5 transition duration-300 shadow-md shadow-amber-700
   ${completed
             ? "opacity-50"
-            : "hover:shadow-2xl"
+            : "hover:shadow-xl"
           }`}
       >
         <div className="flex justify-between items-center mb-3">
