@@ -34,6 +34,7 @@ const SessionContext = ({ children }) => {
       return data.id != id;
     });
     setSession(result);
+    setFilteredSession(result)
     localStorage.setItem("sessionData", JSON.stringify(result))
   };
 
@@ -47,7 +48,7 @@ const SessionContext = ({ children }) => {
     localStorage.setItem("sessionData", JSON.stringify(result))
   }
 
-  return (  
+  return (
     <context.Provider
       value={{
         addSession,
