@@ -3,7 +3,7 @@ import React from "react";
 const Header = ({ setToggle }) => {
   return (
     <>
-      <div className="h-[70px]">
+      <div className="h-17.5">
         <div className="flex items-center justify-between bg-stone-900 px-3 rounded h-full">
           <h1>Logo</h1>
           <div>
