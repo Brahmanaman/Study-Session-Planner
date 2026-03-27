@@ -6,6 +6,7 @@ const SessionContext = ({ children }) => {
   let [session, setSession] = useState(JSON.parse(localStorage.getItem("sessionData")) || []);
   let [insertSession, setInsertSession] = useState(null);
   const [filteredSession, setFilteredSession] = useState(session);
+  let [completed, setCompleted] = useState(false)
 
   const addSession = (sessionObj) => {
     //edit
@@ -36,7 +37,17 @@ const SessionContext = ({ children }) => {
     localStorage.setItem("sessionData", JSON.stringify(result))
   };
 
-  return (
+  const markCompleted = (id) => {
+    let result = session.map((data) => {
+      return data.id == id ? { ...data, completed: !completed } : data;
+    })
+    setCompleted((prev) => !prev)
+    setSession(result);
+    setFilteredSession(result);
+    localStorage.setItem("sessionData", JSON.stringify(result))
+  }
+
+  return (  
     <context.Provider
       value={{
         addSession,
@@ -46,7 +57,10 @@ const SessionContext = ({ children }) => {
         session,
         deleteSession,
         filteredSession,
-        setFilteredSession
+        setFilteredSession,
+        markCompleted,
+        setCompleted,
+        completed
       }}
     >
       {children}

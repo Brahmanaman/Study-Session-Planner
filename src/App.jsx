@@ -39,15 +39,15 @@ export const App = () => {
 
   return (
     <>
-      <div className="bg-stone-950 h-screen w-full">
+      <div className="bg-stone-950 min-h-screen w-full">
         <Header setToggle={setToggle} />
-        <div className="px-3 py-2 w-full text-end">
+        <div className="px-8 py-2 w-full text-end">
           <p className="mb-2 text-stone-400 italic font-serif">Total Study Duration: {totalHours}</p>
           <input
             onChange={(e) => seachCard(e.target.value)}
             className="border border-stone-400 py-2 px-3 rounded-md placeholder:text-stone-400 outline-none text-xs" type="text" placeholder="Search card by topic" />
         </div>
-        <div className="px-3 mt-5 flex flex-wrap gap-5">
+        <div className="px-8 mt-5 flex flex-wrap gap-5">
           {filteredSession &&
             filteredSession.map((data, index) => {
               return (

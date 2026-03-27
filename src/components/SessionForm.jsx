@@ -5,7 +5,7 @@ import { context } from "../context/SessionContext";
 import { nanoid } from "nanoid";
 
 const SessionForm = ({ setToggle }) => {
-  let { insertSession, setInsertSession, addSession, setSession } =
+  let { insertSession, setInsertSession, addSession, setSession, completed } =
     useContext(context);
   const {
     register,
@@ -18,10 +18,13 @@ const SessionForm = ({ setToggle }) => {
   });
 
   const submitHandler = (data) => {
+    //edit
     if (insertSession) {
       addSession({ ...data, id: insertSession.id });
-    } else {
-      addSession({ ...data, id: nanoid() });
+    }
+    //add
+    else {
+      addSession({ ...data, id: nanoid(), completed: completed });
     }
 
     reset();
