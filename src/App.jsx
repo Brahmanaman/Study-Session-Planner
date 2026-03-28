@@ -29,8 +29,11 @@ export const App = () => {
       setFilteredSession(session);
       return;
     }
-    let filteredData = session.filter((data) =>
-      data.topic?.toLowerCase().includes(value.toLowerCase()),
+    let filteredData = session.filter(
+      (data) =>
+        data.topic?.toLowerCase().includes(value.toLowerCase()) ||
+        data.subject?.toLowerCase().includes(value.toLowerCase()) ||
+        data.priority.toLowerCase().includes(value.toLowerCase()),
     );
     setFilteredSession(filteredData);
   };
@@ -47,7 +50,7 @@ export const App = () => {
             onChange={(e) => seachCard(e.target.value)}
             className="border border-stone-400 py-2 px-3 rounded-md placeholder:text-stone-400 outline-none text-xs"
             type="text"
-            placeholder="Search card by topic"
+            placeholder="Search your card"
           />
         </div>
         {filteredSession.length == 0 && (
